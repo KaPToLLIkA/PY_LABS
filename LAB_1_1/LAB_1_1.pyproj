@@ -2,17 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>8b5102b6-9a73-410e-b302-cc117bbb9f62</ProjectGuid>
+    <ProjectGuid>261f64d6-4849-4da2-843a-b94f1a8bb543</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>LAB_1.py</StartupFile>
+    <StartupFile>LAB_1_1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>LAB_1</Name>
-    <RootNamespace>LAB_1</RootNamespace>
-    <IsWindowsApplication>False</IsWindowsApplication>
-    <InterpreterId>Global|VisualStudio|Python Custom 3.8.5</InterpreterId>
+    <Name>LAB_1_1</Name>
+    <RootNamespace>LAB_1_1</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,10 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="LAB_1.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterpreterReference Include="Global|VisualStudio|Python Custom 3.8.5" />
+    <Compile Include="LAB_1_1.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
