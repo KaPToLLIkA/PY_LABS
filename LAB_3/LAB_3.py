@@ -17,10 +17,7 @@ db = DataBase()
 
 
 def comparator(d1: Doctor, d2: Doctor):
-    if d1.work_experience == d2.work_experience:
-        return True
-    else:
-        return False
+    int(d1.work_experience) == int(d2.work_experience)
 
 def get_work_exp():
     while(True):

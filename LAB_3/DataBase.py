@@ -5,7 +5,8 @@ class DataBase:
         self.data_dict = {}
     
     def add_by_key(self, key, value):
-        self.data_dict[key] = value
+        if key not in self.data_dict:
+            self.data_dict[key] = value
 
     def remove_by_key(self, key):
         try:
