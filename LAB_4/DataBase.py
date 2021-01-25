@@ -5,13 +5,16 @@ class DataBase:
         self.data_dict = {}
     
     def add_by_key(self, key, value):
-        self.data_dict[key] = value
+        if key not in self.data_dict:
+            self.data_dict[key] = value
 
     def remove_by_key(self, key):
+        result = key in self.data_dict
         try:
             del self.data_dict[key]
         except KeyError:
             pass
+        return result
 
     def print_all(self):
         print("<data>")
