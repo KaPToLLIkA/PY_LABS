@@ -5,6 +5,7 @@ from tkinter import messagebox as mb
 
 from Doctor import *
 from DataBase import *
+from FileProcessor import *
 from SimpleConstTableView import *
 
 #Doctor(
@@ -37,6 +38,14 @@ def build_table_data(objects: list):
 
 
 class App(Tk):
+    def __exit_proc(self):
+        if mb.askyesno("Exit", "Are you sure?"):
+            self.destroy()
+
+    def __about_info(self):
+        about_view = Toplevel(self)
+        Label(about_view, text="Authors: Pavel V. and Purdenko K.").pack(fill="both")
+
     def __remove_proc(self):
         error_msg = ""
         if not self.__remove_frame_childs['tab_number'].get():
@@ -116,11 +125,30 @@ class App(Tk):
     def __init__(self):
         Tk.__init__(self)
 
+        self.__db = DataBase()
+        self.__fileproccessor = FileProcessor(self.__db)
+
+        self.__mainmenu = Menu(self)
+        self.config(menu=self.__mainmenu)
+
+        self.__filemenu = Menu(self.__mainmenu, tearoff=0)
+        self.__filemenu.add_command(label="Open...", command=self.__fileproccessor.load_proc)
+        self.__filemenu.add_command(label="Create", command=self.__fileproccessor.create_proc)
+        self.__filemenu.add_command(label="Save...", command=self.__fileproccessor.save_proc)
+        self.__filemenu.add_command(label="Exit", command=self.__exit_proc)
+
+        self.__helpmenu = Menu(self.__mainmenu, tearoff=0)
+        self.__helpmenu.add_command(label="About", command=self.__about_info)
+
+        self.__mainmenu.add_cascade(label="File",
+                             menu=self.__filemenu)
+        self.__mainmenu.add_cascade(label="Help",
+                             menu=self.__helpmenu)
+
         self.__rx_check_date = "^(([0-1][0-9])|(2[0-3])):(([0-5][0-9])|(60))\\-(([0-1][0-9])|(2[0-3])):[0-5][0-9]$"
         self.__rx_check_phone = "^((\\+7)|8)\\d{10}$"
         self.__rx_check_number = "^[1-9]\\d*$"
 
-        self.__db = DataBase()
 
         self.__tab_control = Notebook(self)
 
