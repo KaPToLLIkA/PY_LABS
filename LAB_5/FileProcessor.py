@@ -22,6 +22,13 @@ class FileProcessor:
                 pickle.dump(self.db.data_dict, open(self.cur_file, "wb"))
             return
 
+    def save_as_proc(self):
+        self.cur_file = f.asksaveasfilename()
+        if self.cur_file:
+            self.new_file = False
+            self.file_opened = True
+            pickle.dump(self.db.data_dict, open(self.cur_file, "wb"))
+
     def create_proc(self):
         self.file_opened = False
         self.new_file = True

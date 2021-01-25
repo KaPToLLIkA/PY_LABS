@@ -135,6 +135,7 @@ class App(Tk):
         self.__filemenu.add_command(label="Open...", command=self.__fileproccessor.load_proc)
         self.__filemenu.add_command(label="Create", command=self.__fileproccessor.create_proc)
         self.__filemenu.add_command(label="Save...", command=self.__fileproccessor.save_proc)
+        self.__filemenu.add_command(label="Save as...", command=self.__fileproccessor.save_as_proc)
         self.__filemenu.add_command(label="Exit", command=self.__exit_proc)
 
         self.__helpmenu = Menu(self.__mainmenu, tearoff=0)
